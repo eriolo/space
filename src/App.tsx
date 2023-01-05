@@ -1,6 +1,7 @@
 import { useQuery, gql } from '@apollo/client'
-import logo from './logo.png'
-import './App.css'
+import Layout from './components/Layout'
+import './styles/all.css'
+import Header from './components/Header'
 
 const customerQuery = gql`
   query customerData {
@@ -21,13 +22,9 @@ function App() {
   if (loading) return <p>Loading... 🚀 </p>
   if (error) return <p>Error 😢</p>
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Customer data</p>
-        <p>{JSON.stringify(data, null, 100)}</p>
-      </header>
-    </div>
+    <Layout>
+      <Header />
+    </Layout>
   )
 }
 
