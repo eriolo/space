@@ -3,9 +3,10 @@
   "env": {
     "jest": true
   },
-  "plugins": ["jest", "import", "prettier"],
+  "plugins": ["jest", "no-only-tests", "import", "prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "import/order": ["warn", { "groups": ["builtin", "external", "internal", "parent", "sibling", "index"] }]
+    "import/order": ["warn", { "groups": ["builtin", "external", "internal", "parent", "sibling", "index"] }],
+    "no-only-tests/no-only-tests": "error"
   }
 }
