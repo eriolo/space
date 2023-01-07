@@ -13,6 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
+    "\n  query GetLaunchesPast($limit: Int!, $offset: Int!) {\n    launchesPast(limit: $limit, offset: $offset) {\n      id\n      launch_date_utc\n      mission_name\n    }\n  }\n": types.GetLaunchesPastDocument,
     "\n  query GetRockets($limit: Int!, $offset: Int!) {\n    rockets(limit: $limit, offset: $offset) {\n      id\n      name\n      mass {\n        kg\n      }\n    }\n  }\n": types.GetRocketsDocument,
 };
 
@@ -30,6 +31,10 @@ const documents = {
 **/
 export function gql(source: string): unknown;
 
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  query GetLaunchesPast($limit: Int!, $offset: Int!) {\n    launchesPast(limit: $limit, offset: $offset) {\n      id\n      launch_date_utc\n      mission_name\n    }\n  }\n"): (typeof documents)["\n  query GetLaunchesPast($limit: Int!, $offset: Int!) {\n    launchesPast(limit: $limit, offset: $offset) {\n      id\n      launch_date_utc\n      mission_name\n    }\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
