@@ -1,0 +1,28 @@
+.container {
+  margin-bottom: 2rem;
+}
+
+.button {
+  font-weight: 600;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.button__icon {
+  margin-left: 0.6rem;
+  width: 0; 
+  height: 0; 
+  border-left: 0.6rem solid transparent;
+  border-right: 0.6rem solid transparent;
+}
+
+.button__icon--up {
+  border-bottom: 0.6rem solid var(--color-bg-slate-400);
+}
+
+.button__icon--down {
+  border-top: 0.6rem solid var(--color-bg-slate-400);
+}
