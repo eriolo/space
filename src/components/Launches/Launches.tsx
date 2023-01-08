@@ -16,7 +16,7 @@ export const GET_PAST_LAUNCHES_QUERY = gql(`
   }
 `)
 
-// TODO: Could consolidate the usage of the Rockets and Launches components
+// TODO: Could consolidate the usage of the Rockets, Launches, and Launchpads components
 const Launches = () => {
   const { loading, error, data } = useQuery(GET_PAST_LAUNCHES_QUERY, {
     // TODO: The limit and offset are hardcoded for now, but we should use pagination for a list
@@ -50,22 +50,24 @@ const LaunchesTable = ({ launches }: LaunchesTableProps) => {
   if (!launches) return null
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Mission name</th>
-          <th>Launch date</th>
-        </tr>
-      </thead>
-      <tbody>
-        {launches?.map(launch => (
-          <tr key={launch?.id} data-testid="launch-row">
-            <td>{launch?.mission_name}</td>
-            <td>{launch?.launch_date_utc}</td>
+    <div className="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Mission name</th>
+            <th>Launch date</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {launches?.map(launch => (
+            <tr key={launch?.id} data-testid="launch-row">
+              <td>{launch?.mission_name}</td>
+              <td>{launch?.launch_date_utc}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 

@@ -5,7 +5,7 @@ import React from 'react'
 import { act } from 'react-dom/test-utils'
 import Rockets, { GET_ROCKETS_QUERY } from './Rockets'
 
-test('should by default render rockets with weight by weight in ascending order', async () => {
+test('should by default render rockets by weight in ascending order', async () => {
   const rocketsMock = {
     request: {
       query: GET_ROCKETS_QUERY,

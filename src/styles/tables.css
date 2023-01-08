@@ -1,9 +1,21 @@
+.table-container {
+  position: relative;
+  overflow-x: auto;
+}
+
 table {
   width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
   border-collapse: collapse;
   background-color: var(--color-bg-slate-800);
+  border: 0.1rem solid var(--color-bg-slate-700);
+}
+
+thead {
+  background-color: var(--color-bg-slate-900);
+}
+
+tr {
+  border-top: 0.1rem solid var(--color-bg-slate-700);
 }
 
 th {

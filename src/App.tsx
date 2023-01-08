@@ -3,6 +3,7 @@ import './styles/all.css'
 import Header from './components/Header'
 import Rockets from './components/Rockets'
 import Launches from './components/Launches'
+import Launchpads from './components/Launchpads'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Rockets />
       <Launches />
+      <Launchpads />
     </Layout>
   )
 }
