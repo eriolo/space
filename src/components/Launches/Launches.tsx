@@ -4,6 +4,7 @@ import { useMemo } from 'react'
 
 import { gql } from '../../__generated__/gql'
 import { GetLaunchesPastQuery } from '../../__generated__/graphql'
+import Skeleton from '../Skeleton'
 import s from './Launches.module.css'
 
 export const GET_PAST_LAUNCHES_QUERY = gql(`
@@ -34,8 +35,18 @@ const Launches = () => {
       <header>
         <h2>Latest launches</h2>
       </header>
-      {/* TODO: Show e.g. skeleton loaders instead */}
-      {loading && <p>Loading...</p>}
+      {/* TODO: With a dynamic table component we can also calculate the skeleton loader dynamically */}
+      {loading && (
+        <>
+          <div data-testid="skeleton-loader" />
+          <Skeleton style={{ height: '4.1rem' }} data-testid="skeleton-loader" />
+          <Skeleton style={{ height: '4rem', marginTop: '0.1rem' }} />
+          <Skeleton style={{ height: '4rem', marginTop: '0.1rem' }} />
+          <Skeleton style={{ height: '4rem', marginTop: '0.1rem' }} />
+          <Skeleton style={{ height: '4rem', marginTop: '0.1rem' }} />
+          <Skeleton style={{ height: '4rem', marginTop: '0.1rem' }} />
+        </>
+      )}
       {error && <p>Fetching past launches failed</p>}
       <LaunchesTable launches={modifiedLaunches} />
     </section>

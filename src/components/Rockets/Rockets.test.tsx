@@ -18,7 +18,7 @@ test('should by default render rockets by weight in ascending order', async () =
       <Rockets />
     </MockedProvider>,
   )
-  expect(await screen.findByText('Loading...')).toBeInTheDocument()
+  expect(screen.queryByTestId('skeleton-loader')).toBeInTheDocument()
   const rocketRows = await screen.findAllByTestId('rocket-row')
   expect(rocketRows.length).toEqual(4)
 
@@ -39,7 +39,7 @@ test('should sort by descending order on button click', async () => {
       <Rockets />
     </MockedProvider>,
   )
-  expect(await screen.findByText('Loading...')).toBeInTheDocument()
+  expect(screen.queryByTestId('skeleton-loader')).toBeInTheDocument()
   const sortButton = await screen.findByRole('button', { name: /Sort/i })
   expect(sortButton).toBeInTheDocument()
   act(() => sortButton.click())
@@ -64,7 +64,7 @@ test('should handle network error', async () => {
     </MockedProvider>,
   )
 
-  expect(await screen.findByText('Loading...')).toBeInTheDocument()
+  expect(screen.queryByTestId('skeleton-loader')).toBeInTheDocument()
   expect(await screen.findByText('Fetching rockets failed')).toBeInTheDocument()
 })
 

@@ -7,7 +7,6 @@ table {
   width: 100%;
   border-collapse: collapse;
   background-color: var(--color-bg-slate-800);
-  border: 0.1rem solid var(--color-bg-slate-700);
 }
 
 thead {

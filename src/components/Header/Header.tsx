@@ -1,6 +1,6 @@
 const Header = () => (
   <header>
-    <h1>Northvolt Frontend Test</h1>
+    <h1>Frontend Test</h1>
   </header>
 )
 

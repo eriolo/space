@@ -17,7 +17,7 @@ test('should render the five latest launches', async () => {
       <Launches />
     </MockedProvider>,
   )
-  expect(await screen.findByText('Loading...')).toBeInTheDocument()
+  expect(screen.queryByTestId('skeleton-loader')).toBeInTheDocument()
   const pastLaunchesRows = await screen.findAllByTestId('launch-row')
   expect(pastLaunchesRows.length).toEqual(5)
 
@@ -48,7 +48,7 @@ test('should handle network error', async () => {
     </MockedProvider>,
   )
 
-  expect(await screen.findByText('Loading...')).toBeInTheDocument()
+  expect(screen.queryByTestId('skeleton-loader')).toBeInTheDocument()
   expect(await screen.findByText('Fetching past launches failed')).toBeInTheDocument()
 })
 

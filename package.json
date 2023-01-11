@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "frontend-test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,12 +34,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run codegen:compile && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint": "npm run lint:ts && npm run type-check",
+    "lint:ts": "eslint 'src/**/*.{ts,tsx}'",
     "codegen:compile": "graphql-codegen",
-    "codegen:watch": "graphql-codegen -w"
+    "codegen:watch": "graphql-codegen -w",
+    "type-check": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": [

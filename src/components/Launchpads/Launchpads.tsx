@@ -7,6 +7,7 @@ import { useMemo } from 'react'
 import { getDistance } from 'geolib'
 import { gql } from '../../__generated__/gql'
 import { GetLaunchpadsQuery } from '../../__generated__/graphql'
+import Skeleton from '../Skeleton'
 import s from './Launchpads.module.css'
 
 export const GET_LAUNCHPADS_QUERY = gql(`
@@ -63,10 +64,21 @@ const Launchpads = () => {
       <header>
         <h2>Launchpads</h2>
       </header>
-      {/* TODO: Show e.g. skeleton loaders instead */}
-      {loading && <p>Loading...</p>}
+      <p>Listing of SpaceX launchpads with their distance to the Northvolt Factory One.</p>
+      {/* TODO: Use a map lib (e.g. Leaflet or Google Maps) to properly visualize the launchpads along with Northvolt Factory One */}
+      {/* TODO: With a dynamic table component we can also calculate the skeleton loader dynamically */}
+      {loading && (
+        <>
+          <div data-testid="skeleton-loader" />
+          <Skeleton style={{ height: '4.1rem' }} data-testid="skeleton-loader" />
+          <Skeleton style={{ height: '4rem', marginTop: '0.1rem' }} />
+          <Skeleton style={{ height: '4rem', marginTop: '0.1rem' }} />
+          <Skeleton style={{ height: '4rem', marginTop: '0.1rem' }} />
+          <Skeleton style={{ height: '4rem', marginTop: '0.1rem' }} />
+          <Skeleton style={{ height: '4rem', marginTop: '0.1rem' }} />
+        </>
+      )}
       {error && <p>Fetching launchpads failed</p>}
-      {data?.launchpads && <p>Listing of SpaceX launchpads with their distance to the Northvolt Factory One.</p>}
       <LaunchpadsTable launchpads={modifiedLaunchpads} />
     </section>
   )

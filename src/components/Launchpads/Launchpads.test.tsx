@@ -18,7 +18,7 @@ test('should by default render by distance in ascending order', async () => {
       <Launchpads />
     </MockedProvider>,
   )
-  expect(await screen.findByText('Loading...')).toBeInTheDocument()
+  expect(screen.queryByTestId('skeleton-loader')).toBeInTheDocument()
   const launchpadRows = await screen.findAllByTestId('launchpad-row')
   expect(launchpadRows.length).toEqual(6)
 
@@ -39,7 +39,7 @@ test('should sort by descending order on button click', async () => {
       <Launchpads />
     </MockedProvider>,
   )
-  expect(await screen.findByText('Loading...')).toBeInTheDocument()
+  expect(screen.queryByTestId('skeleton-loader')).toBeInTheDocument()
   const sortButton = await screen.findByRole('button', { name: /Sort/i })
   expect(sortButton).toBeInTheDocument()
   act(() => sortButton.click())
@@ -66,7 +66,7 @@ test('should have fallback for missing location', async () => {
       <Launchpads />
     </MockedProvider>,
   )
-  expect(await screen.findByText('Loading...')).toBeInTheDocument()
+  expect(screen.queryByTestId('skeleton-loader')).toBeInTheDocument()
   const launchpadRows = await screen.findAllByTestId('launchpad-row')
   expect(launchpadRows.length).toEqual(6)
 
@@ -88,7 +88,7 @@ test('should handle network error', async () => {
     </MockedProvider>,
   )
 
-  expect(await screen.findByText('Loading...')).toBeInTheDocument()
+  expect(screen.queryByTestId('skeleton-loader')).toBeInTheDocument()
   expect(await screen.findByText('Fetching launchpads failed')).toBeInTheDocument()
 })
 
